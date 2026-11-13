@@ -10,3 +10,9 @@ def get_object_or_none(klass, *args, **kwargs):
         return queryset.get(*args, **kwargs)
     except:  # noqa: E722
         return None
+
+
+def first_or_none(klass, *args, **kwargs):
+    """ Returns the first object matching the filters, or None. """
+    queryset = _get_queryset(klass)
+    return queryset.filter(*args, **kwargs)[0]

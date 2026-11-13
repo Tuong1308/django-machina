@@ -11,7 +11,7 @@ class NullableMaxLengthValidator(validators.MaxLengthValidator):
     """ Provides a way to not validate an input if the max length is None """
 
     def __call__(self, value):
-        if self.limit_value is None:
+        if not self.limit_value:
             # If the limit value is None, this means that there is no
             # limit value at all. The default validation process is not
             # performed.
