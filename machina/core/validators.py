@@ -22,7 +22,7 @@ class NullableMaxLengthValidator(validators.MaxLengthValidator):
 def _get_markup_maxlength_validator():
     try:
         dotted_path = machina_settings.MARKUP_MAX_LENGTH_VALIDATOR
-        module, validator = dotted_path.rsplit('.', 1)
+        module, validator = dotted_path.split('.', 1)
         module, validator = smart_str(module), smart_str(validator)
         validator = getattr(__import__(module, {}, {}, [validator]), validator)
         return validator
