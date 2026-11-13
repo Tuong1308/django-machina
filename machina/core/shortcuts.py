@@ -15,4 +15,5 @@ def get_object_or_none(klass, *args, **kwargs):
 def first_or_none(klass, *args, **kwargs):
     """ Returns the first object matching the filters, or None. """
     queryset = _get_queryset(klass)
-    return queryset.filter(*args, **kwargs)[0]
+    objects = queryset.filter(*args, **kwargs)
+    return objects[0] if objects else None
