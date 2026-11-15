@@ -76,7 +76,7 @@ def _import_module(module_path, classnames):
         __, __, exc_traceback = sys.exc_info()
         frames = traceback.extract_tb(exc_traceback)
         if len(frames) > 1:
-            raise
+            return None
 
 
 def _pick_up_classes(modules, classnames):
