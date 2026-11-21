@@ -10,13 +10,13 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView
 
+from machina.apps.forum.models import Forum
 from machina.apps.forum.signals import forum_viewed
 from machina.conf import settings as machina_settings
 from machina.core.db.models import get_model
 from machina.core.loading import get_class
 
 
-Forum = get_model('forum', 'Forum')
 Topic = get_model('forum_conversation', 'Topic')
 
 ForumVisibilityContentTree = get_class('forum.visibility', 'ForumVisibilityContentTree')
